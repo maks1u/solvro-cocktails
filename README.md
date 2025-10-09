@@ -65,6 +65,12 @@ Aplikacja korzysta z publicznego **Cocktails API**:
 ***
 
 ## 📸 Zrzuty ekranu
-
+### 💻 Komputer/laptop
+![desktop_image_1](https://i.imgur.com/chLY5tS.png)
+![desktop_image_2](https://i.imgur.com/UdqOlPz.png)
+*** 
+### 📱 Telefon
+![mobile_image_1](https://i.imgur.com/ln48Xnu.png)
+![mobile_image_2](https://i.imgur.com/drsLt9V.png)
 
 
