@@ -35,10 +35,6 @@ export default function HomePage() {
       <div id={"cocktails"} className={"py-8 max-md:py-12"}>
         <CocktailsList />
       </div>
-
-      <div className={"w-full mt-10 "}>
-
-      </div>
     </main>
   );
 }

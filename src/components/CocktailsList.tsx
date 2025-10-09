@@ -1,7 +1,7 @@
 "use client"
 
 import {getCocktails} from "~/api/getCocktails";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 import type {Cocktail, CocktailsApiMeta} from "~/schemas/api";
 import CocktailCard from "~/components/CocktailCard";
@@ -13,7 +13,7 @@ export default function CocktailsList() {
 
   const [isLoading, setLoading] = useState(false);
 
-  const getMoreCocktails = async (search: string, reset: boolean = false) => {
+  const getMoreCocktails = useCallback(async (search: string, reset = false) => {
     if (isLoading) return;
     setLoading(true);
 
@@ -22,22 +22,21 @@ export default function CocktailsList() {
     if (cocktailsData && apiMeta) {
       setCocktails(reset ? cocktailsData : [...cocktails, ...cocktailsData]);
       setListInfo(apiMeta);
-      console.log(cocktailsData);
     }
 
     setLoading(false)
-  }
+  }, [isLoading, listInfo, cocktails])
 
   useEffect(() => {
-    getMoreCocktails("", true).then(r => null); // Load all on mount
+    getMoreCocktails("", true).catch(console.error);
   }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (search.trim().length > 0) {
-        getMoreCocktails(search, true).then(r => null);
+        getMoreCocktails(search, true).catch(console.error);
       } else {
-        getMoreCocktails("", true).then(r => null); // fetch default list
+        getMoreCocktails("", true).catch(console.error);
       }
     }, 400);
     return () => clearTimeout(timer);
@@ -78,7 +77,7 @@ export default function CocktailsList() {
                         <button
                           className={`${isLoading ? "disabled cursor-not-allowed brightness-75" : "cursor-pointer hover:brightness-125"} flex text-cloud border-1 border-cloud/60 px-4 py-2 rounded-lg bg-dark transition-all duration-350`}
                           onClick={() => {
-                            getMoreCocktails(search).then(r => null)
+                            getMoreCocktails(search, false).catch(console.error)
                           }}
                         >
                           {isLoading ? "Wczytywanie" : "Zobacz więcej"}
@@ -96,7 +95,7 @@ export default function CocktailsList() {
                   <button
                     className={`${isLoading ? "disabled" : ""} flex text-cloud border-1 border-cloud/60 px-4 py-2 rounded-lg hover:cursor-pointer hover:brightness-125 bg-dark transition-all duration-350`}
                     onClick={() => {
-                      getMoreCocktails(search, true).then(r => null)
+                      getMoreCocktails(search, true).catch(console.error)
                     }}
                   >
                     Wczytywanie
