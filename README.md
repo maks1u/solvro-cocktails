@@ -7,6 +7,12 @@ Piękna, responsywna aplikacja webowa do przeglądania koktajli, umożliwiająca
 - zaznaczanie ulubionych koktajli,
 - przeglądanie szczegółów wybranych drinków.
 
+
+## ✨ Demo
+
+Aplikacja jest dostępna online (Vercel):
+👉 **[https://solvro-cocktails.vercel.app/](https://solvro-cocktails.vercel.app/)**
+
 ## 🚀 Stos technologiczny
 
 - **Next.js 15.5.4** (stworzona z szablonu T3-app)
