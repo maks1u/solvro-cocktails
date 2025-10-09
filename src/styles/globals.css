@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    --color-white: #fff;
+    --color-snowy: #d9e8ff;
+    --color-light-blue: #80b3ff;
+    --color-cloud: #6583c8;
+    --color-midnight: #274276;
+    --color-dark: #101B30;
+    --color-b-dark: #0f182c;
+
+    --animate-bouncing: bouncing 2s infinite;
+    @keyframes bouncing {
+        0%, 100% {
+            transform: translateY(-4%);
+            animation-timing-function: ease-in-out;
+        }
+        65% {
+            transform: translateY(4%);
+            animation-timing-function: ease-in-out;
+        }
+    }
+
+    --animate-arrow: arrow 4s infinite;
+    @keyframes arrow {
+        0%, 100% {
+            transform: translateY(-7%);
+            animation-timing-function: ease-in-out;
+        }
+        50% {
+            transform: translateY(7%);
+            animation-timing-function: ease-in-out;
+        }
+    }
+}
